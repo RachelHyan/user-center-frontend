@@ -3,7 +3,7 @@
 
 declare namespace API {
   interface PageInfo {
-    /** 
+    /**
 1 */
     current?: number;
     pageSize?: number;
@@ -12,7 +12,7 @@ declare namespace API {
   }
 
   interface PageInfo_UserInfo_ {
-    /** 
+    /**
 1 */
     current?: number;
     pageSize?: number;
@@ -48,7 +48,7 @@ declare namespace API {
 
   interface UserInfo {
     id?: string;
-    name?: string;
+    username?: string;
     /** nick */
     nickName?: string;
     /** email */

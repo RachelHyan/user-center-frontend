@@ -24,9 +24,25 @@ export async function register(body: API.RegisterParams, options?: { [key: strin
   });
 }
 
+/** 退出登录接口 POST /api/user/logout */
+export async function outLogin(options?: { [key: string]: any }) {
+  return request<API.BaseResponse<number>>('/api/user/logout', {
+    method: 'POST',
+    ...(options || {}),
+  });
+}
+
 /** 获取当前的用户 GET /api/user/current */
 export async function currentUser(options?: { [key: string]: any }) {
   return request<API.BaseResponse<API.CurrentUser>>('/api/user/current', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
+/** 搜索用户 GET /api/user/search */
+export async function searchUsers(options?: { [key: string]: any }) {
+  return request<API.BaseResponse<API.CurrentUser[]>>('/api/user/search', {
     method: 'GET',
     ...(options || {}),
   });

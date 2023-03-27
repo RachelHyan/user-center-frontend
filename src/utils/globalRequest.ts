@@ -11,10 +11,12 @@ import {stringify} from "querystring";
  * 配置request请求时的默认参数
  */
 const request = extend({
-  credentials: 'include', // 默认请求是否带上cookie
-  // prefix: process.env.NODE_ENV === 'production' ? 'http://user-backend.code-nav.cn' : undefined
+  // credentials: 'include', // 默认请求是否带上cookie
+  // prefix: process.env.NODE_ENV === 'production' ? 'http://43.139.160.242:8080' : undefined
   // requestType: 'form',
+  timeout: 10000,
 });
+
 
 /**
  * 所有请求拦截器
@@ -26,7 +28,12 @@ request.interceptors.request.use((url, options): any => {
     url,
     options: {
       ...options,
-      headers: {},
+      headers: {
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        // 'Access-Control-Allow-Headers': 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
+        // 'Access-Control-Allow-Credentials': 'true',
+      },
     },
   };
 });

@@ -8,13 +8,14 @@
     "prepare": "husky install",
     "postinstall": "max setup",
     "setup": "max setup",
-    "start": "npm run dev"
+    "start": "serve ./dist"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-components": "^2.0.1",
     "@umijs/max": "^4.0.61",
     "antd": "^5.0.0",
+    "serve": "^14.2.0",
     "umi-request": "^1.4.0"
   },
   "devDependencies": {

@@ -1,7 +1,12 @@
 // 运行时配置
-import { history } from '@umijs/max';
+import { history, RequestConfig, RunTimeLayoutConfig } from '@umijs/max';
+import AvatarDropdown from './components/AvatarDropdown';
 import { currentUser as queryCurrentUser } from "./services/login";
 
+console.log(process.env);
+export const request: RequestConfig = {
+  timeout: 1000000,
+};
 /**
  * 无需用户登录态的页面
  */
@@ -13,12 +18,12 @@ const NO_NEED_LOGIN_WHITE_LIST = ['/register', '/login'];
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
 export async function getInitialState(): Promise<{
-  currentUser?: API.CurrentUser,
+  currentUser?: API.CurrentUser | any,
   fetchUserInfo: () => Promise<API.CurrentUser | undefined>,
  }> {
   const fetchUserInfo = async () => {
     try {
-      const {data} = await queryCurrentUser();
+      const data = await queryCurrentUser();
       return data;
     } catch (error) {
       history.push('/login');
@@ -40,11 +45,8 @@ export async function getInitialState(): Promise<{
   };
 }
 
-export const layout = () => {
+export const layout:RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
-    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
-    menu: {
-      locale: false,
-    },
+    rightContentRender: () => <AvatarDropdown />,
   };
 };

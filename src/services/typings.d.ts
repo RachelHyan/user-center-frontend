@@ -1,6 +1,16 @@
 // import '@umijs/max/typings';
 
 declare namespace API {
+  /**
+   * 通用返回类
+   */
+  type BaseResponse<T> = {
+    code: number,
+    data: T,
+    message: string,
+    description: string,
+  }
+
   type CurrentUser = {
     id: number;
     username: string;
@@ -28,16 +38,6 @@ declare namespace API {
     checkPassword?: string;
     planetCode?: string;
   };
-
-  /**
-   * 通用返回类
-   */
-  type BaseResponse<T> = {
-    code: number,
-    data: T,
-    message: string,
-    description: string,
-  }
 
   type LoginResult = {
     status?: string;

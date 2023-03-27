@@ -8,12 +8,12 @@ export default defineConfig({
   request: {},
   proxy: {
     '/api': {
-      target: 'http://localhost:8080',
-      changeOrigin: true,
+      target: 'http://43.139.160.242:8080',
+      changeOrigin: true, 
     }
   },
   layout: {
-    title: '@umijs/max',
+    title: 'user-center',
   },
   routes: [
     {
@@ -47,7 +47,13 @@ export default defineConfig({
         path: '/table',
         component: './Table',
     },
+    {
+      name: '用户管理',
+      path: '/user-manage',
+      component: './UserManage',
+    }
   ],
   npmClient: 'pnpm',
+  // exportStatic: {},
 });
 
