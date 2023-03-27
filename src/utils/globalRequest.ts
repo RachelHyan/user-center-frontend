@@ -11,10 +11,10 @@ import {stringify} from "querystring";
  * 配置request请求时的默认参数
  */
 const request = extend({
-  credentials: 'include', // 默认请求是否带上cookie
-  prefix: process.env.NODE_ENV === 'production' ? 'http://43.139.160.242' : undefined,
+  // credentials: 'include', // 默认请求是否带上cookie
+  // prefix: process.env.NODE_ENV === 'production' ? 'http://43.139.160.242' : undefined,
   // requestType: 'form',
-  timeout: 10000,
+  // timeout: 10000,
 });
 
 
